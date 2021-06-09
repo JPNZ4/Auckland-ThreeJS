@@ -89,7 +89,7 @@ const material = new THREE.ShaderMaterial({
 });
 const mesh = new THREE.Mesh(geometry, material);
 mesh.rotation.set(-Math.PI / 2, 0, 0);
-mesh.scale.set(1 / 512, 1 / 512, 1 / 512);
+// mesh.scale.set(1 / 8, 1 / 8, 1 / 8);
 mesh.renderOrder = 1;
 scene.add(mesh);
 
@@ -155,7 +155,8 @@ updateSun();
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.001, 1000);
-camera.position.z = 3;
+camera.position.set(361, 148, 289);
+camera.rotation.set(-0.474768, 0.838193, 0.3649899606);
 scene.add(camera);
 
 // Controls
@@ -172,6 +173,8 @@ const tick = () => {
 
   // Update controls
   controls.update();
+  console.log(camera.position);
+  console.log(camera.rotation);
 
   // Render
   renderer.render(scene, camera);
